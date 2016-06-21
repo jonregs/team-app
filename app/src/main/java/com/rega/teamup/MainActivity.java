@@ -114,14 +114,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        YourGamesFragment yourGames = new YourGamesFragment();
-
         if (id == R.id.your_games) {
-            new YourGamesFragment();
+            mViewPager.setCurrentItem(0);
         } else if (id == R.id.nearby_games) {
-            new NearbyGamesFragment();
+            mViewPager.setCurrentItem(1);
         } else if (id == R.id.invite_players) {
-            new InvitePlayersFragment();
+            mViewPager.setCurrentItem(2);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
