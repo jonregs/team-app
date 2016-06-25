@@ -9,19 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.rega.teamup.model.Flower;
+import com.rega.teamup.model.YourGames;
 
 import java.util.List;
 
-public class FlowerArrayAdapter extends ArrayAdapter<Flower> {
+public class YourGamesArrayAdapter extends ArrayAdapter<YourGames> {
 
     private Context context;
-    private List<Flower> flowerList;
+    private List<YourGames> flowerList;
 
-    public FlowerArrayAdapter(Context context, int resource, List<Flower> objects) {
+    public YourGamesArrayAdapter(Context context, int resource, List<YourGames> objects) {
         super(context, resource, objects);
         this.context = context;
         this.flowerList = objects;
@@ -35,7 +34,7 @@ public class FlowerArrayAdapter extends ArrayAdapter<Flower> {
         View view = inflater.inflate(R.layout.item_flower, null);
 
 
-        Flower flower = flowerList.get(position);
+        YourGames flower = flowerList.get(position);
         TextView tv = (TextView) view.findViewById(R.id.textView1);
         tv.setText(flower.getName());
 

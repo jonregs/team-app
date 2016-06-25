@@ -3,7 +3,7 @@ package com.rega.teamup.model;
 /**
  * Created by Jon on 6/22/2016.
  */
-public class Flower {
+public class YourGames {
 
     private int productId;
     private String name;

@@ -3,15 +3,14 @@ package com.rega.teamup;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.rega.teamup.model.Flower;
-import com.rega.teamup.parser.FlowerJsonParser;
+import com.rega.teamup.model.YourGames;
+import com.rega.teamup.parser.YourGamesJsonParser;
 
 import java.util.List;
 
@@ -22,8 +21,8 @@ import java.util.List;
 public class YourGamesFragment extends ListFragment {
 
     TextView output;
-    List<Flower> flowerList;
-    List<MyTask> tasks;
+    List<YourGames> flowerList;
+    List<YourGamesTask> tasks;
 
     @Nullable
     @Override
@@ -34,7 +33,7 @@ public class YourGamesFragment extends ListFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MyTask task = new MyTask();
+        YourGamesTask task = new YourGamesTask();
 
         String uri = "http://services.hanselandpetal.com/feeds/flowers.json";
         task.execute(uri);
@@ -43,11 +42,11 @@ public class YourGamesFragment extends ListFragment {
 
     protected void updateDisplay() {
 
-        FlowerArrayAdapter adapter = new FlowerArrayAdapter(getActivity(), R.layout.item_flower, flowerList);
+        YourGamesArrayAdapter adapter = new YourGamesArrayAdapter(getActivity(), R.layout.item_flower, flowerList);
         setListAdapter(adapter);
     }
 
-    private class MyTask extends AsyncTask<String, String, String> {
+    private class YourGamesTask extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {
@@ -64,7 +63,7 @@ public class YourGamesFragment extends ListFragment {
         @Override
         protected void onPostExecute(String result) {
 
-            flowerList = FlowerJsonParser.parseFeed(result);
+            flowerList = YourGamesJsonParser.parseFeed(result);
             updateDisplay();
         }
 
