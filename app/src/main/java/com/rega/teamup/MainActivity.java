@@ -47,7 +47,11 @@ public class MainActivity extends AppCompatActivity{
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
                 if (item.getItemId() == R.id.your_games) {
-                    Log.v("TAG", "your games clicked");
+                    mFragmentManager = getSupportFragmentManager();
+                    mFragmentTransaction = mFragmentManager.beginTransaction();
+                    mFragmentTransaction.replace(R.id.containerView, new CreateGameFragment());
+                    mFragmentTransaction.addToBackStack(null);
+                    mFragmentTransaction.commit();
                     drawer.closeDrawers();
                 }
 
