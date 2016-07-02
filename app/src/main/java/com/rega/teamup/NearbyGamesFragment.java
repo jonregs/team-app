@@ -13,6 +13,10 @@ import android.view.ViewGroup;
  */
 public class NearbyGamesFragment extends Fragment {
 
+    public NearbyGamesFragment () {
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

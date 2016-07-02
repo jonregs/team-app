@@ -12,6 +12,10 @@ import android.view.ViewGroup;
  */
 public class CreateGameFragment extends Fragment {
 
+    public CreateGameFragment(){
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
