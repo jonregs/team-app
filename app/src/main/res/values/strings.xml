@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Team Up</string>
+    <string name="app_name">Open Invite</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

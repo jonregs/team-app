@@ -12,7 +12,7 @@
         android:id="@+id/textView"
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/holo_blue_dark"
-        android:text="Invite Players\nFragment"/>
+        android:text="Party Plan\nFragment"/>
 
     <TextView
         android:layout_width="wrap_content"

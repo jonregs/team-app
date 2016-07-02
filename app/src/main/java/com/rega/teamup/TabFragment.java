@@ -86,11 +86,11 @@ public class TabFragment extends Fragment {
 
             switch (position){
                 case 0 :
-                    return "Your Games";
+                    return "Your Invites";
                 case 1 :
-                    return "Nearby Games";
+                    return "Open Invites";
                 case 2 :
-                    return "Invite Players";
+                    return "Party Plan";
             }
             return null;
         }
