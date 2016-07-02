@@ -33,13 +33,34 @@ public class MainActivity extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.containerView,new TabFragment());
         mFragmentTransaction.commit();
 
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+                if (item.getItemId() == R.id.your_games) {
+                    Log.v("TAG", "your games clicked");
+                    drawer.closeDrawers();
+                }
+
+                return false;
+            }
+        }
+        );
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        drawer.bringToFront();
+        toggle.syncState();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -53,15 +74,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        drawer.bringToFront();
-        toggle.syncState();
-
     }
-
     @Override
     public void onBackPressed() {
         FragmentManager man = getSupportFragmentManager();
@@ -77,7 +90,6 @@ public class MainActivity extends AppCompatActivity{
             super.onBackPressed();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -104,31 +116,6 @@ public class MainActivity extends AppCompatActivity{
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-
-   @SuppressWarnings("StatementWithEmptyBody")
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-
-       FragmentTransaction mfragmentTransaction = mFragmentManager.beginTransaction();
-        int id = item.getItemId();
-
-        if (id == R.id.your_games) {
-            //mViewPager.setCurrentItem(1);
-        } else if (id == R.id.nearby_games) {
-            //mViewPager.setCurrentItem(1);
-        } else if (id == R.id.invite_players) {
-            //mViewPager.setCurrentItem(2);
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return false;
     }
 
     protected boolean isOnline() {
