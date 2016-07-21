@@ -8,4 +8,9 @@
     <color name="colorAccent">#2FBBA8</color>
     <!--this is for splash screen-->
     <color name="gray">#165A50</color>
+
+    <color name="black">#000</color>
+    <color name="orange">#FA0</color>
+    <color name="white">#FFF</color>
+
 </resources>

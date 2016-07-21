@@ -4,23 +4,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/your_games"
-            android:title="Your Games" />
+            android:title="Create Invite" />
         <item
             android:id="@+id/nearby_games"
-            android:title="Nearby Games" />
+            android:title="Rate Open Invite" />
         <item
             android:id="@+id/invite_players"
-            android:title="Invite Players" />
+            android:title="Send Invite" />
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:title="Share" />
+                android:title="Share this app" />
             <item
                 android:id="@+id/nav_send"
-                android:title="Send" />
+                android:title="Sign Out" />
         </menu>
     </item>
 
